@@ -8,9 +8,9 @@ use Illuminate\Support\Facades\Validator;
 use App\DnaSample;
 
 class MutantController extends Controller
-{
-    public function createMutant(Request $request)
-    {
+{   
+    public function postMutant(Request $request)
+    {   
         $validator = $this->validateMutantRequest($request);
 
         if ( $validator->fails()) {
@@ -19,6 +19,7 @@ class MutantController extends Controller
 
         try {
             $dnaSample = new DnaSample($request->dna);
+            $dnaSample->save();
 
             if ( $dnaSample->dna_type === "M" )
                 return response(null, 200);
@@ -40,9 +41,6 @@ class MutantController extends Controller
      *    If each item is a string of min 4 chars
      *    If the size of the string is equal to the quantity of items (for the NxN rule) 
      *    If the chars are any combination of A, T, C or G
-     *
-     * @param Request $request
-     * @return void
      */
     protected function validateMutantRequest(Request $request){
         

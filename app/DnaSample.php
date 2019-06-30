@@ -6,20 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class DnaSample extends Model
 {
-    private $dna;
-    public $dna_type; 
+    protected $fillable = ['dna', 'dna_type'];
+    protected $casts = ['dna' => 'array'];
 
-    public function __construct(Array $dna)
+    public function __construct(array $dna)
     {
         $this->dna = $dna;
-        $this->dna_type = ( (new DnaAnalyzer($this->dna))->isMutant() ? "M" : "H" );
-        //$this->save();
+        $this->dna_type = ((new DnaAnalyzer($this->dna))->isMutant() ? "M" : "H");
+        parent::__construct(['dna' => $dna, 'dna_type' => $this->dna_type]); //This is for not override the "Model" class contructor
     }
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['dna'];
 }

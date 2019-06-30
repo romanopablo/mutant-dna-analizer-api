@@ -11,4 +11,5 @@
 |
 */
 
-$router->post('/mutants', 'MutantController@createMutant');
+$router->post('/mutants', 'MutantController@postMutant');
+$router->get('/stats', 'StatsController@getStats');
