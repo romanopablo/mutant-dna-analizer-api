@@ -8,6 +8,7 @@ services:
 
 before_script:
   - composer install -n
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
   - cp .env.example .env
 
 script:
