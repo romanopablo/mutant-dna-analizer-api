@@ -18,9 +18,14 @@ class MutantController extends Controller
         }
 
         try {
-            $dnaSample = new DnaSample($request->dna);
-            $dnaSample->save();
+            $dnaSample = DnaSample::where('dna', json_encode($request->dna))->first();
 
+            if ($dnaSample === null){
+                $dnaSample = DnaSample::make(['dna' => $request->dna]);
+                $dnaSample->analize();
+                $dnaSample->save();
+            }
+            
             if ( $dnaSample->dna_type === "M" )
                 return response(null, 200);
             else

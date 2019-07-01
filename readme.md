@@ -9,9 +9,9 @@ Te ha contratado a ti para desarrollar una Api REST que permita verificar si un 
 
 ## Tecnologías 
 
--  [Lumen](https://lumen.laravel.com/)
--  [MySql](https://www.mysql.com/)
--  [PhpUnit](https://phpunit.de/)
+  - [Lumen](https://lumen.laravel.com/)
+  - [MySql](https://www.mysql.com/)
+  - [PhpUnit](https://phpunit.de/)
 
 ## Funcionamiento 
 El proyecto se encuentra corriendo sobre una vm de EC2 en AWS. 
@@ -22,12 +22,12 @@ URL AWS:([http://ec2-54-88-178-196.compute-1.amazonaws.com](http://ec2-54-88-178
 [/mutants](http://ec2-54-88-178-196.compute-1.amazonaws.com/mutants)
 
 Request: 
--  POST
+ - POST
 
 Request body ejemplo:
 
 ```
-  {“dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}
+  {"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}
 ```
 
 Response mutante:
@@ -45,7 +45,7 @@ Response humano:
 [/stats](http://ec2-54-88-178-196.compute-1.amazonaws.com/stats)
 
 Request ejemplo: 
--  GET
+ - GET
 
 Response:
 
@@ -60,21 +60,23 @@ Response:
 
 ### Instrucciones para correr en su entorno local
 
-Es necesario tener instalado PHP >= 7.1.3, MySql v5.7 y Composer para la gestión de dependencias.
+Es necesario tener instalado PHP >= 7.1.3 con los modulos pdo, mysqlnd y mbstring 
+(Si usamos yum por ejemplo: sudo yum install php73 php73-fpm php73-pdo php73-mysqlnd php73-mbstring), 
+MySql v5.7 y Composer para la gestión de dependencias.
 
--  Clonar el repositorio.
--  Crear crear un archivo .env usando como ejemplo .env.example.
--  Cambiar los valores DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME y DB_PASSWORD del archivo .env con los datos correspondientes a su MySql local.
--  Ejecutar los siguientes comandos:
+  - Clonar el repositorio.
+  - Crear un archivo .env usando como ejemplo .env.example.
+  - Cambiar los valores DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME y DB_PASSWORD del archivo .env con los datos correspondientes a su MySql local.
+  - Ejecutar los siguientes comandos:
 ```
 composer install
 php artisan migrate
 ```
--  Para servir el proyecto:
+  - Para servir el proyecto:
 ```
 php -S localhost:8000 -t public
 ```
-URL local: http://localhost:8000
+URL local: [http://localhost:8000](http://localhost:8000)
 
 ### Tests
 
