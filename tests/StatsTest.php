@@ -7,7 +7,7 @@ class StatsTest extends TestCase
      *
      * @return void
      */
-    public function test_tooSmallDnaArray()
+    public function test_obtainStatsSuccesfully()
     {
         $this->get('/stats');
         $this->assertResponseStatus(200);
