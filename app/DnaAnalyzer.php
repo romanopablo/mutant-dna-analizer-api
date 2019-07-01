@@ -23,7 +23,7 @@ class DnaAnalyzer
     }
 
     public function isMutant(): Bool
-    {   echo("\n". "Arranco a analizar: " . "\n");
+    {
         switch (true) {
             case ($this->readHorizontalChains()):
                 return true;
@@ -38,7 +38,6 @@ class DnaAnalyzer
                 return true;
                 break;
             default:
-                echo ("No encontre----------");
                 return false;
                 break;
         }
@@ -80,9 +79,7 @@ class DnaAnalyzer
                 $this->searchSequenceInChain($temp);
                 if ($this->foundSquences >= $this::SQ_NEEDED_TO_MUTANT)
                     return true;
-            } else {
-                echo (implode($temp) . "\n");
-            };
+            }
         }
         
         return false;
@@ -94,10 +91,8 @@ class DnaAnalyzer
      * @param [Array] $chain
      */
     private function searchSequenceInChain(Array $chain){
-        echo (implode($chain) . "\n");
-        if ( preg_match('/(AAAA|CCCC|GGGG|TTTT)/i', implode( $chain) )){ //preg_match stop searching if the patter is found
+
+        if ( preg_match('/(AAAA|CCCC|GGGG|TTTT)/i', implode( $chain) )) //preg_match stop searching if the patter is found
             $this->foundSquences++;
-            echo ("Match found: " .implode($chain) ."\n");
-        }
     }
 }
