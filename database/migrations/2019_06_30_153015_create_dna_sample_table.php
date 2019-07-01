@@ -16,7 +16,7 @@ class CreateDnaSampleTable extends Migration
         Schema::create('dna_samples', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('dna_type', 1)->nullable();
-            $table->json('dna');
+            $table->text('dna');
             $table->timestamps();
         });
     }
