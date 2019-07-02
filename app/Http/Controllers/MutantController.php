@@ -52,8 +52,9 @@ class MutantController extends Controller
         $validator = Validator::make($request->all(), [
             'dna'  => 'required|array|min:4',
             'dna.*' => array(
+                'required',
                 'string',
-                'size:' . count($request->dna),
+                'size:' . ( $request->has('dna') ? count($request->dna) : 0),
                 'regex:/^[atcg]+$/i'
             )
         ]);

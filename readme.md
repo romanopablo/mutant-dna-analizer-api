@@ -90,4 +90,9 @@ php vendor/bin/phpunit --stderr
 
 #### Cobertura
 
-La cobertura de código se puede ver en el badge al principio de este readme, se realizo con la herramienta Codecov. 
+La cobertura de código se puede ver en el badge al principio de este readme, se realizo con la herramienta Codecov.  
+
+Se puede generar el XML con el informe con el informe ejecutando el siguiente comando:
+```
+php vendor/bin/phpunit --coverage-clover build/coverage/xml tests
+```
