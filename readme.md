@@ -14,7 +14,7 @@ Te ha contratado a ti para desarrollar una Api REST que permita verificar si un 
   - [PhpUnit](https://phpunit.de/)
 
 ## Funcionamiento 
-El proyecto se encuentra corriendo sobre una vm de EC2 en AWS.
+El proyecto se encuentra corriendo sobre una vm de EC2 en AWS.  
 URL AWS:([http://ec2-54-88-178-196.compute-1.amazonaws.com](http://ec2-54-88-178-196.compute-1.amazonaws.com))
 
 ### Analizador de ADN
@@ -40,7 +40,7 @@ Response humano:
   403 Forbidden
 ```
 
-Aclaración: Al recibir una muestra de ADN a analizar, si la misma ya fue analizada anteriormente no se agrega una nuevo registro en la base de datos.
+Aclaración: Al recibir una muestra de ADN a analizar, si la misma ya fue analizada anteriormente no se agrega un nuevo registro en la base de datos.
 
 ### Estadisticas
 
